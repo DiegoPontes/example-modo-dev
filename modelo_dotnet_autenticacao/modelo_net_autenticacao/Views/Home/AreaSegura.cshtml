@@ -1,0 +1,49 @@
+﻿@using modelo_net_autenticacao.Auth.Lib;
+
+<h2>Área segura</h2>
+
+<p>Apenas usuários autenticados conseguem acessar esta página.</p>
+
+<h3>Claims identificadas</h3>
+<table title="Claims" cellpadding="1" border="1">
+    <tr>
+        <th>Type</th>
+        <th>Issuer</th>
+        <th>Value</th>
+    </tr>
+    @foreach (var claim in ClaimHelper.ListClaimsFromIdentity(User.Identity))
+    {
+        <tr>
+            <td>@claim.Type</td>
+            <td>@claim.Issuer</td>
+            <td>@claim.Value</td>
+        </tr>
+    }
+</table>
+
+<h2>User.Identities</h2>
+<div title="User.Identity" cellpadding="1" border="1">
+    <dl>
+        <dt>Name</dt>
+        <dd>@User.Identity.Name</dd>
+    </dl>
+    <dl>
+        <dt>IsAuthenticated</dt>
+        <dd>@User.Identity.IsAuthenticated</dd>
+    </dl>
+    <dl>
+        <dt>AuthenticationType</dt>
+        <dd>@User.Identity.AuthenticationType</dd>
+    </dl>
+    <dl>
+        <dt>@((System.Security.Claims.ClaimsIdentity)User.Identity).NameClaimType</dd>
+</dl>
+    <dl>
+        <dt>RoleClaimType</dt>
+        <dd>@((System.Security.Claims.ClaimsIdentity)User.Identity).RoleClaimType</dd>
+    </dl>
+    <dl>
+        <dt>BootstrapContext</dt>
+        <dd>@((System.Security.Claims.ClaimsIdentity)User.Identity).BootstrapContext</dd>
+    </dl>
+</div>

@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="row">
+    <div class="">
+        <h4>Acesso via SEFAZ Identity</h4>
+        <p>Clique na imagem abaixo para acesso via Certificado Digital</p>
+        <a id="loginPessoaFisicaCertificado" href="@Url.Action("LoginSEFAZIdentityFaz", "Account")">
+            <img src='@Url.Content("~/Images/certificadodigital.jpg")' alt="imagem de um certificado digital" />
+        </a>
+    </div>
+    <div class="">
+        <h4>Acesso via IDP.SP</h4>
+        <div class="loginIdpSp">
+            <a href="@Url.Action("IdpSp", "Account")">
+                <img src='@Url.Content("~/Images/logo-gov.png")' alt="sp.gov.br" />
+            </a>
+        </div>
+    </div>
+    <div class="">
+        <h4>Acesso via Login Único Federal</h4>
+        <!-- Font Rawline-->
+        <link rel="stylesheet"
+              href="https://cdngovbr-ds.estaleiro.serpro.gov.br/design-system/fonts/rawline/css/rawline.css" />
+        <!-- Font Raleway-->
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900&amp;display=swap" />
+        <!-- Design System GOV.BR CSS-->
+        <a class="br-button primary mt-3 mt-sm-0 ml-sm-3"
+           id="loginPessoaFisicaGovBr"
+           href="@Url.Action("LoginUnicoFederal", "Account")">
+            Entrar com gov.br
+        </a>
+
+    </div>
+</div>
